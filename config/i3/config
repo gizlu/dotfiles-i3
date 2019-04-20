@@ -46,10 +46,10 @@ bindsym $mod+d exec rofi -show run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym --release $mod+h exec --no-startup-id "~/i3-vim-focus left"
-bindsym --release $mod+j exec --no-startup-id "~/i3-vim-focus down"
-bindsym --release $mod+k exec --no-startup-id "~/i3-vim-focus up"
-bindsym --release $mod+l exec --no-startup-id "~/i3-vim-focus right"
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -138,11 +138,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+p move container to workspace $ws11
 
 assign [class="Firefox"] $ws2
-#assign [class="UXTerm"] $ws1
 assign [class="libreoffice"] $ws3
 assign [class="keepassxc"] $ws9
-assign [class="Rhythmbox"] $ws10
-assign [class="Freeciv-gtk3"] $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
