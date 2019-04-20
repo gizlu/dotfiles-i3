@@ -1,4 +1,3 @@
-
 " === General setting
 set encoding=utf8
 set number
@@ -79,6 +78,7 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 " Close all the buffers
+map <leader>q :bd<cr>
 map <leader>ba :bufdo bd<cr>
 
 map <leader>l :bnext<cr>
