@@ -20,7 +20,7 @@ hide_edge_borders both
 
 for_window [class="^.*"] border pixel 2
 
-gaps outer 1
+gaps outer 2
 
 # drag windows
 floating_modifier $mod
@@ -188,28 +188,19 @@ set $darkgray #1d2021
 
 # Start i3bar to display a workspace bar
 bar {
-    position top
+  position top
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    colors {
-        # bar background color
-        background $bg
-        # text color used for blocks that do not have a color specified.
-        statusline $yellow
-        # workspaces section
-        #                    border  backgr. text
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
-    }
+  colors {
+    separator #928374
+    background #282828
+    statusline #ebdbb2
+    focused_workspace #689d6a #689d6a #282828
+    active_workspace #1d2021 #1d2021 #928374
+    inactive_workspace #32302f #32302f #928374
+    urgent_workspace #cc241d #cc241d #ebdbb2
+  }
 }
 
-# blue gruvbox
-# class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
 
 # extra bindings
 # lock
@@ -269,3 +260,8 @@ exec --no-startup-id compton
 #exec_always --no-startup-id sleep 0.5 && conky -c ~/.conky/conkyrc
 #exec_always --no-startup-id sleep 1 && conky -c ~/.conky/conkyrc2
 exec_always --no-startup-id feh --bg-scale ~/Pictures/.backgrounds/wallpaper.jpg
+
+client.focused #689d6a #689d6a #282828 #282828
+client.focused_inactive #1d2021 #1d2021 #928374 #282828
+client.unfocused #32302f #32302f #928374 #282828
+client.urgent #cc241d #cc241d #ebdbb2 #282828
