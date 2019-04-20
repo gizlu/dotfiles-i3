@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/gizlu/.config/i3/i3blocks'
-let g:netrw_dirhist_2='/usr/lib/i3blocks'
-let g:netrw_dirhist_3='/home/gizlu/go/src/github.com'
-let g:netrw_dirhist_4='/home/gizlu/go/src/github.com/proxypoke'
-let g:netrw_dirhist_5='/home/gizlu/go/src/github.com/proxypoke/i3ipc'
-let g:netrw_dirhist_6='/home/gizlu/.vim'

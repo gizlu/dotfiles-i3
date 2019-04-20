@@ -6,7 +6,7 @@ URxvt.scrollstyle: rxvt
 URxvt.iso14755 : false
 ! Extensions
 URxvt.perl-ext-common:  default, clipboard
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+hift ctrl vRxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! Xft settings
 Xft.antialias:  true

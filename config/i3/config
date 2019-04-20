@@ -31,7 +31,7 @@ popup_during_fullscreen leave_fullscreen
 # variables
 set $terminal xst
 set $browser firefox-nightly
-set $gui-editor gvim
+set $gui-editor nvim-qt
 set $file-manager thunar
 set $nm-gui networkmanager_dmenu
 
