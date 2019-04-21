@@ -50,8 +50,9 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabled = 1
 
 " => autocompletion
- let g:deoplete#enable_at_startup = 1
- 
+let g:deoplete#enable_at_startup = 1
+let deoplete#tag#cache_limit_size = 5000000
+
 " => snippets
 
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
