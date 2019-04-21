@@ -148,3 +148,7 @@ set autoread
 autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim
 autocmd! bufwritepost ~/.config/nvim/Plugins.vim source ~/.config/nvim/init.vim
 autocmd! bufwritepost ~/.config/nvim/ginit.vim source ~/.config/nvim/init.vim
+
+autocmd! bufwritepost ~/.dotfiles/config/nvim/init.vim source ~/.config/nvim/init.vim
+autocmd! bufwritepost ~/.dotfiles/config/nvim/Plugins.vim source ~/.config/nvim/init.vim
+autocmd! bufwritepost ~/.dotfiles/config/nvim/ginit.vim source ~/.config/nvim/init.vim
