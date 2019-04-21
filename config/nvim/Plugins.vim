@@ -28,7 +28,6 @@ Plug 'tpope/vim-fugitive' "git wrapper
 Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing 
 
 " =>  Other text editing features
-Plug 'Raimondi/delimitMate' "autoclosing quotes, paranthesis, brackets
 Plug 'tpope/vim-commentary' "gcc to comment line, gc in visual to comment selection
 Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
 call plug#end()
