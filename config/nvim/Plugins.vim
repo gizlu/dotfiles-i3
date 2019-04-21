@@ -6,6 +6,8 @@ Plug 'vim-airline/vim-airline' "statusbar
 
 " => completion and syntax
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "autocompletion
+Plug 'Shougo/neosnippet.vim' "snippet manager
+Plug 'Shougo/neosnippet-snippets' "snippets repository
 
 " => syntax plugins
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -41,6 +43,15 @@ let g:airline#extensions#tabline#enabled = 1
 
 " => autocompletion
  let g:deoplete#enable_at_startup = 1
+ 
+" => snippets
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)"
+	\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)"
+	\: "\<TAB>"
 
 " => nerdtree
 " Open/close NERDTree Tabs with ,t
