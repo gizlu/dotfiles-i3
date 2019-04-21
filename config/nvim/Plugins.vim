@@ -6,6 +6,10 @@ Plug 'vim-airline/vim-airline' "statusbar
 
 " => completion and syntax
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "autocompletion
+
+Plug 'Shougo/neco-syntax' "completion from syntax files
+Plug 'deoplete-plugins/deoplete-jedi' "python completion
+
 Plug 'Shougo/neosnippet.vim' "snippet manager
 Plug 'Shougo/neosnippet-snippets' "snippets repository
 
