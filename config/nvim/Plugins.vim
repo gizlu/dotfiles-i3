@@ -6,6 +6,8 @@ Plug 'vim-airline/vim-airline' "statusbar
 
 " => completion and syntax
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "autocompletion
+
+" => syntax plugins
 Plug 'PotatoesMaster/i3-vim-syntax'
 
 " => Project navigation
@@ -18,9 +20,13 @@ Plug 'majutsushi/tagbar'
 
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy find
 
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'aymericbeaumet/symlink.vim'
+" => git support
+Plug 'airblade/vim-gitgutter' "git diff column
+Plug 'tpope/vim-fugitive' "git wrapper
+Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing 
+
+" =>  Other text editing features
+Plug 'Raimondi/delimitMate' "autoclosing quotes, paranthesis, brackets
 call plug#end()
 
 " => airline
