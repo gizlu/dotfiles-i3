@@ -29,6 +29,7 @@ Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing
 
 " =>  Other text editing features
 Plug 'Raimondi/delimitMate' "autoclosing quotes, paranthesis, brackets
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " => airline
@@ -39,7 +40,7 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabled = 1
 
 " => autocompletion
-let g:deoplete#enable_at_startup = 1
+ let g:deoplete#enable_at_startup = 1
 
 " => nerdtree
 " Open/close NERDTree Tabs with ,t
