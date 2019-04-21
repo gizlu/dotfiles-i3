@@ -36,6 +36,10 @@ Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing
 " =>  Other text editing features
 Plug 'tpope/vim-commentary' "gcc to comment line, gc in visual to comment selection
 Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
+
+" => python
+Plug 'klen/python-mode'
+
 call plug#end()
 
 " => airline
@@ -91,3 +95,12 @@ let g:gitgutter_override_sign_column_highlight = 1
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>ga :Gwrite<cr>
+
+" => python-mode
+let g:pymode_python = 'python3'
+let g:pymode_indent = 1
+let g:pymode_folding = 1
+let g:pymode_virtualenv = 1
+let g:pymode_lint = 1
+let g:pymode_lint_on_write = 1
+let g:pymode_rope = 0
