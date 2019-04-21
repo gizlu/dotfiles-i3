@@ -12,3 +12,4 @@ Currently the following arch packages are used:
 - [neovim](https://github.com/neovim/neovim) as editor
 - [neovim-qt](https://github.com/equalsraf/neovim-qt) as gui editor
 - [compton](https://github.com/chjj/compton) A compositor for X11
+- [ctags](https://ctags.io/) as a tagfiles tool
