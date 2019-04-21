@@ -1,12 +1,26 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-"Appearance
+" => Appearance
 Plug 'morhetz/gruvbox' "gruvbox theme
 Plug 'vim-airline/vim-airline' "statusbar
 
+" => completion and syntax
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "autocompletion
-
 Plug 'PotatoesMaster/i3-vim-syntax'
+
+" => Project navigation
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
+
+Plug 'ctrlpvim/ctrlp.vim' "fuzzy find
+
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'aymericbeaumet/symlink.vim'
 call plug#end()
 
 " => airline
@@ -18,3 +32,30 @@ let g:airline#extensions#tabline#enabled = 1
 
 " => autocompletion
 let g:deoplete#enable_at_startup = 1
+
+" => nerdtree
+" Open/close NERDTree Tabs with ,t
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+
+" => easytags and tagbar
+
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" Open/close tagbar with \b
+nmap <silent> <leader>b :TagbarToggle<CR>
+
+" => gitgutter
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:gitgutter_override_sign_column_highlight = 1
+
+"rebind my favorite commands from Git.vim for Fugitive
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>ga :Gwrite<cr>

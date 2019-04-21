@@ -20,6 +20,9 @@ set splitright
 set shortmess+=A "disable swapfile warning
 set lazyredraw  "Don't redraw while executing macros (good performance config)
 
+let mapleader="," " leader key
+
+filetype plugin on
 source ~/.config/nvim/Plugins.vim
 
 " === Apearance
@@ -33,8 +36,6 @@ syntax on
 
 " === keybindings
 
-" leader key
-let mapleader=","
 
 " <Esc> to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -84,14 +85,11 @@ map <leader>ba :bufdo bd<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 
-" create new tabs
-nnoremap <leader>t :tabnew<Enter>
-
 " Fast saving
 nmap <leader>w :w!<cr>
 
 " => sudo for handling the permisiond-deined error
-"command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 " => Fast editing of vimrc config
 map <leader>e :e! ~/.config/nvim/init.vim<cr>
@@ -128,7 +126,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " => persistent undo (not cleared after close)
 try
-    set undodir=~/.vim/temp_dirs/undodir
+    set undodir=~/.local/share/nvim/temp_dirs/undodir
     set undofile
 catch
 endtry
