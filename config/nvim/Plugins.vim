@@ -20,6 +20,8 @@ Plug 'majutsushi/tagbar'
 
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy find
 
+Plug 'vim-scripts/bufexplorer.zip'
+
 " => git support
 Plug 'airblade/vim-gitgutter' "git diff column
 Plug 'tpope/vim-fugitive' "git wrapper
@@ -56,6 +58,14 @@ let g:easytags_suppress_ctags_warning = 1
 
 " Open/close tagbar with \b
 nmap <silent> <leader>b :TagbarToggle<CR>
+
+" => bufExplorer plugin
+
+let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerFindActive=1
+let g:bufExplorerSortBy='name'
+map <leader>o :BufExplorer<cr>
 
 " => gitgutter
 let g:airline#extensions#hunks#non_zero_only = 1
