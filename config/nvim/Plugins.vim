@@ -13,6 +13,8 @@ Plug 'deoplete-plugins/deoplete-jedi' "python completion
 Plug 'Shougo/neosnippet.vim' "snippet manager
 Plug 'Shougo/neosnippet-snippets' "snippets repository
 
+Plug 'vim-syntastic/syntastic' "syntax checker
+
 " => syntax plugins
 Plug 'PotatoesMaster/i3-vim-syntax'
 
@@ -97,11 +99,18 @@ nmap <leader>gs :Gstatus<cr>
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>ga :Gwrite<cr>
 
+" => syntastic settings 
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+
 " => python-mode
 let g:pymode_python = 'python3'
 let g:pymode_indent = 1
 let g:pymode_folding = 1
 let g:pymode_virtualenv = 1
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1
+let g:pymode_lint = 0
 let g:pymode_rope = 0
