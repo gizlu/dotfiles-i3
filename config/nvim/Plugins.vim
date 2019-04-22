@@ -101,6 +101,7 @@ nmap <leader>ga :Gwrite<cr>
 
 " => syntastic settings 
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args='--ignore=E701'
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
 augroup mySyntastic
