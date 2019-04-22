@@ -35,8 +35,6 @@ set termguicolors
 syntax on
 
 " === keybindings
-
-
 " <Esc> to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 
@@ -85,6 +83,9 @@ map <leader>ba :bufdo bd<cr>
 
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
+
+"quick change directory to current file
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
