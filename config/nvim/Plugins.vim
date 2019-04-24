@@ -12,8 +12,8 @@ Plug 'deoplete-plugins/deoplete-jedi' "python completion
 Plug 'wokalski/autocomplete-flow' "javascript completion
 Plug 'lvht/phpcd.vim' "php completion
 
-Plug 'Shougo/neosnippet.vim' "snippet manager
-Plug 'Shougo/neosnippet-snippets' "snippets repository
+Plug 'SirVer/ultisnips' "snippet manager
+Plug 'honza/vim-snippets' "snippets repository
 
 Plug 'vim-syntastic/syntastic' "syntax checker
 
@@ -64,13 +64,12 @@ let g:deoplete#enable_at_startup = 1
 let deoplete#tag#cache_limit_size = 5000000
 
 " => snippets
+"default ultisnips bindings
 
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)"
-	\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)"
-	\: "\<TAB>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsListSnippets = "<c-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " => nerdtree
 " Open/close NERDTree Tabs with ,t
