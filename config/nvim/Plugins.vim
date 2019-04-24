@@ -9,6 +9,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "autocompletion
 
 Plug 'Shougo/neco-syntax' "completion from syntax files
 Plug 'deoplete-plugins/deoplete-jedi' "python completion
+Plug 'wokalski/autocomplete-flow' "javascript completion
+Plug 'lvht/phpcd.vim' "php completion
 
 Plug 'Shougo/neosnippet.vim' "snippet manager
 Plug 'Shougo/neosnippet-snippets' "snippets repository
@@ -17,6 +19,8 @@ Plug 'vim-syntastic/syntastic' "syntax checker
 
 " => syntax plugins
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'StanAngeloff/php.vim'
 
 " => Project navigation
 Plug 'scrooloose/nerdtree'
