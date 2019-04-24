@@ -34,7 +34,7 @@ Plug 'ctrlpvim/ctrlp.vim' "fuzzy find
 
 Plug 'vim-scripts/bufexplorer.zip'
 
-Plug 'mhinz/vim-startify' "fancy start screen
+Plug 'mhinz/vim-startify' "fancy start screenT
 
 " => git support
 Plug 'airblade/vim-gitgutter' "git diff column
@@ -102,8 +102,10 @@ let g:gitgutter_override_sign_column_highlight = 1
 
 "rebind my favorite commands from Git.vim for Fugitive
 nmap <leader>gs :Gstatus<cr>
-nmap <leader>gc :Gcommit<cr>
 nmap <leader>ga :Gwrite<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gr :Gread<CR>
+
 
 " => syntastic settings 
 let g:syntastic_python_checkers = ['flake8']
