@@ -34,6 +34,8 @@ Plug 'ctrlpvim/ctrlp.vim' "fuzzy find
 
 Plug 'vim-scripts/bufexplorer.zip'
 
+Plug 'mhinz/vim-startify' "fancy start screen
+
 " => git support
 Plug 'airblade/vim-gitgutter' "git diff column
 Plug 'tpope/vim-fugitive' "git wrapper
