@@ -6,7 +6,7 @@ My archlinux configuration files
 Currently the following arch packages are used:
 - [i3-gaps](https://github.com/Airblader/i3) as window manager
 - [i3blocks](https://aur.archlinux.org/packages/i3blocks) for the status bar
-- [xst](https://github.com/gnotclub/xst) as the terminal emulator
+- [termite](https://github.com/thestinger/termite) as the terminal emulator
 - [neovim](https://github.com/neovim/neovim) as editor
 - [neovim-qt](https://github.com/equalsraf/neovim-qt) as gui editor
 - [firefox](https://www.mozilla.org/pl/firefox/) as internet browser
