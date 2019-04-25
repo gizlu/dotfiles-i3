@@ -49,6 +49,7 @@ Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
 Plug 'klen/python-mode'
 Plug 'tweekmonster/django-plus.vim' "improvements to the handling of Django related files in Vim 
 Plug 'sukima/xmledit/' " help edit XML/HTML documents
+Plug 'christoomey/vim-tmux-navigator' " have same bindings with tmux
 
 call plug#end()
 

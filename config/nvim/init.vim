@@ -33,28 +33,23 @@ source ~/.config/nvim/Plugins.vim
 
 colorscheme gruvbox
 set background=dark
-"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+" Enable true color
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 syntax on
 
 " === keybindings
 " <Esc> to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-" Easier split navigations
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>lnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
+" Enable split navigations in insert mode
+inoremap <C-h> <Esc>:TmuxNavigateLeft<cr>
+inoremap <C-j> <Esc>:TmuxNavigateDown<cr>
+inoremap <C-k> <Esc>:TmuxNavigateUp<cr>
+inoremap <C-l> <Esc>:TmuxNavigateRight<cr>
 
 " copy and paste (ctr+c/x/v)
 vmap <C-c> "+yi
