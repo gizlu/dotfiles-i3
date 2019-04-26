@@ -37,7 +37,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 Plug 'mhinz/vim-startify' "fancy start screenT
 
 " => git support
-Plug 'airblade/vim-gitgutter' "git diff column
+Plug 'mhinz/vim-signify' "git diff column
 Plug 'tpope/vim-fugitive' "git wrapper
 Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing 
 
@@ -97,10 +97,6 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
-
-" => gitgutter
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:gitgutter_override_sign_column_highlight = 1
 
 "rebind my favorite commands from Git.vim for Fugitive
 nmap <leader>gs :Gstatus<cr>
