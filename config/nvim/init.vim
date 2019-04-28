@@ -26,7 +26,7 @@ let g:python3_host_prog='/usr/bin/python3'
 
 let mapleader="," " leader key
 
-filetype plugin on
+filetype plugin indent on
 source ~/.config/nvim/Plugins.vim
 
 " === Apearance

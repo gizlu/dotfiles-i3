@@ -37,7 +37,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 Plug 'mhinz/vim-startify' "fancy start screenT
 
 " => git support
-Plug 'mhinz/vim-signify' "git diff column
+Plug 'airblade/vim-gitgutter' "git diff column
 Plug 'tpope/vim-fugitive' "git wrapper
 Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing 
 
@@ -50,6 +50,7 @@ Plug 'klen/python-mode'
 Plug 'tweekmonster/django-plus.vim' "improvements to the handling of Django related files in Vim 
 Plug 'sukima/xmledit/' " help edit XML/HTML documents
 Plug 'christoomey/vim-tmux-navigator' " have same bindings with tmux
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -98,6 +99,10 @@ let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
 
+" => gitgutter
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:gitgutter_override_sign_column_highlight = 1
+
 "rebind my favorite commands from Git.vim for Fugitive
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Gwrite<cr>
@@ -121,4 +126,4 @@ let g:pymode_indent = 1
 let g:pymode_folding = 1
 let g:pymode_virtualenv = 1
 let g:pymode_lint = 0
-let g:pymode_rope = 0
+let g:pymode_rope = 1
