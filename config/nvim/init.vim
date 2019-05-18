@@ -2,6 +2,7 @@
 set encoding=utf8
 set number
 set ruler
+set nowrap
 
 set wildmenu
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
@@ -28,6 +29,26 @@ let mapleader="," " leader key
 
 filetype plugin indent on
 source ~/.config/nvim/Plugins.vim
+
+" === intendation settings ===
+" configure expanding of tabs for various file types
+au BufRead,BufNewFile *.py set expandtab
+au BufRead,BufNewFile *.c set noexpandtab
+au BufRead,BufNewFile *.h set noexpandtab
+au BufRead,BufNewFile Makefile* set noexpandtab
+
+" --------------------------------------------------------------------------------
+" configure editor with tabs and nice stuff...
+" --------------------------------------------------------------------------------
+set expandtab           " enter spaces when tab is pressed
+set textwidth=120       " break lines when line length increases
+set tabstop=4           " use 4 spaces to represent tab
+set softtabstop=4
+set shiftwidth=4        " number of spaces to use for auto indent
+set autoindent          " copy indent from current line when starting a new line
+
+" make backspaces more powerfull
+set backspace=indent,eol,start
 
 " === Apearance
 
@@ -78,6 +99,7 @@ vnoremap <leader>P "+P
 
 " Close all the buffers
 map <leader>q :bd<cr>
+map <leader>Q :bd!<cr>
 map <leader>ba :bufdo bd<cr>
 
 map <leader>l :bnext<cr>
@@ -143,6 +165,10 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " => Set to auto read when a file is changed from the outside
 set autoread
+
+" => session storing settings
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
 
 " => autoreload vimrc after save
 autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim

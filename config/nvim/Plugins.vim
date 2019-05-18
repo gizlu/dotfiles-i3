@@ -44,6 +44,10 @@ Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing
 " =>  Other text editing features
 Plug 'tpope/vim-commentary' "gcc to comment line, gc in visual to comment selection
 Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
+Plug 'tpope/vim-surround' "easily change, delete parenthes, brackets, quotes, XML tags, and more
+Plug 'alvan/vim-closetag' "auto closing HTML tags
+"Plug 'Valloric/MatchTagAlways' "show matching HTML tags
+Plug 'Chiel92/vim-autoformat' "autoformating
 
 " => Other imporvemnts
 Plug 'klen/python-mode'
@@ -127,3 +131,9 @@ let g:pymode_folding = 1
 let g:pymode_virtualenv = 1
 let g:pymode_lint = 0
 let g:pymode_rope = 1
+"disable annoying pymode features
+let g:pymode_doc = 0
+let g:pymode_rope_complete_on_dot = 0
+
+" => autoformat
+noremap <F3> :Autoformat<CR>
