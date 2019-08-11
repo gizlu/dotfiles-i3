@@ -25,6 +25,7 @@ set lazyredraw  "Don't redraw while executing macros (good performance config)
 let g:python_host_prog='/usr/bin/python2'
 let g:python3_host_prog='/usr/bin/python3'
 
+
 let mapleader="," " leader key
 
 filetype plugin indent on
@@ -72,12 +73,37 @@ inoremap <C-j> <Esc>:TmuxNavigateDown<cr>
 inoremap <C-k> <Esc>:TmuxNavigateUp<cr>
 inoremap <C-l> <Esc>:TmuxNavigateRight<cr>
 
+"Quickly insert paranthesis/brackets/etc
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
+inoremap $t <><esc>i 
+
+" => fold toggle
+
+"single folding
+nnoremap <space> za
+vnoremap <space> zf
+
+"all foldings
+nnoremap <expr> <f2> &foldlevel ? 'zM' :'zR'
+
 " copy and paste (ctr+c/x/v)
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 nmap <C-v> <ESC>"+pa
+
+
+vmap <S-C-c> "+yi
+vmap <S-C-x> "+c
+vmap <S-C-v> c<ESC>"+p
+imap <S-C-v> <ESC>"+pa
+nmap <S-C-v> <ESC>"+pa
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
@@ -112,7 +138,10 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <leader>w :w!<cr>
 
 " => sudo for handling the permisiond-deined error
-command! W w !sudo tee % > /dev/null
+
+" Open a current file with sudo
+command! R e suda://%
+
 
 " => Fast editing of vimrc config
 map <leader>e :e! ~/.config/nvim/init.vim<cr>
@@ -169,6 +198,7 @@ set autoread
 " => session storing settings
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
+
 
 " => autoreload vimrc after save
 autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim

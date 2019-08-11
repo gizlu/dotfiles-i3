@@ -35,11 +35,18 @@ set $gui-editor termite -e "nvim"
 set $file-manager thunar
 set $nm-gui networkmanager_dmenu
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+m move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+m scratchpad show
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
+#bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -205,7 +212,7 @@ bar {
 # extra bindings
 # lock
 #bindsym $mod+shift+x exec --no-startup-id i3lock --color=#4c7899 --ignore-empty-password --show-failed-attempt && xset dpms force suspend
-bindsym $mod+shift+x exec --no-startup-id i3lock --color=#000000 --ignore-empty-password --show-failed-attempt && xset dpms force suspend
+bindsym $mod+shift+x exec --no-startup-id i3lock --color=#000000 --ignore-empty-password --show-failed-attempt && xset dpms force suspend 
 # lock and disable screen
 bindsym $mod+ctrl+x exec --no-startup-id i3lock --color=#000000 --ignore-empty-password --show-failed-attempt && sleep 2 && xset dpms force suspend
 # disable screen
@@ -221,13 +228,13 @@ bindsym $mod+q exec --no-startup-id $browser
 bindsym $mod+a exec --no-startup-id $gui-editor
 # start a file manager
 bindsym $mod+z exec --no-startup-id $file-manager
-# start NetworkManager frontend
-bindsym $mod+n exec --no-startup-id $nm-gui
+# start a file manager in screenshoots folder
+bindsym $mod+n exec --no-startup-id $file-manager ~/Pictures/screeny/
 
 # make screenshoot
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Shift+Print --release exec --no-startup-id picture_name=$(date +%F-%T)'.png' && maim -s ~/Pictures/screeny/$picture_name | xclip -selection clipboard -t image/png && perl-rename 's/[?<>\\:*|\"]/_/g' ~/Pictures/screeny/$picture_name
+bindsym $mod+Print --release exec --no-startup-id picture_name=$(date +%F-%T)'.png' && maim -i $(xdotool getactivewindow) ~/Pictures/screeny/$picture_name && perl-rename 's/[?<>\\:*|\"]/_/g' ~/Pictures/screeny/$picture_name
+bindsym Print exec --no-startup-id picture_name=$(date +%F-%T)'.png' && maim ~/Pictures/screeny/$picture_name && perl-rename 's/[?<>\\:*|\"]/_/g' ~/Pictures/screeny/$picture_name
 
 # Pulse Audio controls
 #increase sound volume
@@ -248,18 +255,31 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# music control
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+
+# move focused workspace between monitors
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
 
 # startup
 exec_always --no-startup-id keepassxc
 exec --no-startup-id compton
+exec --no-startup-id redshift -l 50.9:17.2 -t 4600:2500
 #exec_always --no-startup-id sleep 0.5 && conky -c ~/.conky/conkyrc
 #exec_always --no-startup-id sleep 1 && conky -c ~/.conky/conkyrc2
 exec_always --no-startup-id feh --bg-scale ~/Pictures/.backgrounds/wallpaper.jpg
+exec_always [ ! -s ~/.mpd/pid ] && mpd
+exec --no-startup-id dockd --daemon
+exec --no-startup-id /usr/bin/lxqt-policykit-agent &
+
+for_window [class="Sunflower"] floating enable resize set 640 480
+for_window [class="Termite"] resize set 871 442
+for_window [class="anbox"] floating enable resize set 891 504
+for_window [class=".*"] move position center
 
 client.focused #689d6a #689d6a #282828 #282828
 client.focused_inactive #1d2021 #1d2021 #928374 #282828
