@@ -3,6 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " => Appearance
 Plug 'morhetz/gruvbox' "gruvbox theme
 Plug 'vim-airline/vim-airline' "statusbar
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline-themes'
 
 " => completion and syntax
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "autocompletion
@@ -41,13 +43,14 @@ Plug 'vim-scripts/bufexplorer.zip'
 Plug 'mhinz/vim-startify' "fancy start screenT
 
 " => git support
-Plug 'airblade/vim-gitgutter' "git diff column
+Plug 'mhinz/vim-signify' "git diff column
 Plug 'tpope/vim-fugitive' "git wrapper
 Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing
 
 " =>  Other text editing features
 Plug 'tpope/vim-commentary' "gcc to comment line, gc in visual to comment selection
-Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
+"Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
+Plug 'hlissner/vim-multiedit' 
 Plug 'tpope/vim-surround' "easily change, delete parenthes, brackets, quotes, XML tags, and more
 Plug 'alvan/vim-closetag' "auto closing HTML tags
 "Plug 'Valloric/MatchTagAlways' "show matching HTML tags
@@ -66,6 +69,10 @@ Plug 'edkolev/tmuxline.vim'
 
 "Plug 'idanarye/vim-vebugger' " multi-language debugger
 "Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+" => buffer plugins
+Plug 'Shougo/denite.nvim' 
+Plug 'blindFS/vim-taskwarrior' " vim interface to taskwarrior
 
 Plug 'neomake/neomake'
 call plug#end()
@@ -122,10 +129,6 @@ let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
 
-" => gitgutter
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:gitgutter_override_sign_column_highlight = 1
-
 "rebind my favorite commands from Git.vim for Fugitive
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Gwrite<cr>
@@ -134,9 +137,9 @@ nmap <leader>gr :Gread<CR>
 
 
 " => syntastic settings
-let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_python_checkers = ['pylint']
 "let g:syntastic_python_flake8_args='--ignore=E701'
-let g:syntastic_python_pylint_args = '--disable=C0103 --extension-pkg-whitelist=pygame'
+let g:syntastic_python_pylint_args = '--disable=C0103 --extension-pkg-whitelist=pygame --max-line-length=100'
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
 augroup mySyntastic

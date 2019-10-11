@@ -147,6 +147,7 @@ bindsym $mod+Shift+p move container to workspace $ws11
 assign [class="Firefox"] $ws2
 assign [class="libreoffice"] $ws3
 assign [class="keepassxc"] $ws9
+assign [title="music"] $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -256,10 +257,10 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # music control
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioStop exec --no-startup-id mpc stop
 
 # move focused workspace between monitors
 bindsym $mod+Shift+greater move workspace to output right
@@ -273,6 +274,7 @@ exec --no-startup-id redshift -l 50.9:17.2 -t 4600:2500
 #exec_always --no-startup-id sleep 1 && conky -c ~/.conky/conkyrc2
 exec_always --no-startup-id feh --bg-scale ~/Pictures/.backgrounds/wallpaper.jpg
 exec_always [ ! -s ~/.mpd/pid ] && mpd
+exec --no-startup-id termite -e ncmpcpp -t music
 exec --no-startup-id dockd --daemon
 exec --no-startup-id /usr/bin/lxqt-policykit-agent &
 
