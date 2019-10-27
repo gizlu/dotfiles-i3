@@ -68,7 +68,7 @@ Plug 'christoomey/vim-tmux-navigator' " have same bindings with tmux
 Plug 'edkolev/tmuxline.vim'
 
 "Plug 'idanarye/vim-vebugger' " multi-language debugger
-"Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" 
 
 " => buffer plugins
 Plug 'Shougo/denite.nvim' 

@@ -74,6 +74,8 @@ plugins=(
     virtualenvwrapper
     copydir
     taskwarrior
+    gitfast
+    z
     history
 )
 
@@ -122,5 +124,7 @@ tickle () {
 alias tick=tickle
 alias think='tickle +1d'
 
-# To customize prompt, run `p10k configure` or edit /home/gizlu/.p10k.zsh.
-[[ -f /home/gizlu/.p10k.zsh ]] && source /home/gizlu/.p10k.zsh
+export LC_ALL=en_US.UTF-8 # set terminal language to english
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

@@ -21,6 +21,9 @@ set splitright
 set shortmess+=A "disable swapfile warning
 set lazyredraw  "Don't redraw while executing macros (good performance config)
 
+set makeprg=make\ -C\ ../build\ -j9
+nnoremap <F4> :make!<cr>
+
 "Force using global python interpreter (useful with virtualenv)
 let g:python_host_prog='/usr/bin/python2'
 let g:python3_host_prog='/usr/bin/python3'

@@ -81,7 +81,7 @@ color15 = #ebdbb2
 # vim: ft=dosini cms=#%s
 
 [hints]
-#font = Monospace 12
+font = Monospace 12
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
