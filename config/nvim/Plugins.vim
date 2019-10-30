@@ -105,8 +105,6 @@ nmap <silent> <leader>n :NERDTreeTabsToggle<CR>
 " open ack for fast search
 map <leader>g :Ack
 
-" suda
-let g:suda_smart_edit = 1
 " => easytags and tagbar
 
 " Where to look for tags files

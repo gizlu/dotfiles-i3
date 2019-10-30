@@ -144,7 +144,8 @@ nmap <leader>w :w!<cr>
 
 " Open a current file with sudo
 command! R e suda://%
-
+" Save a current file with sudo
+command! W w suda://%
 
 " => Fast editing of vimrc config
 map <leader>e :e! ~/.config/nvim/init.vim<cr>
