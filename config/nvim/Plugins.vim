@@ -17,7 +17,7 @@ Plug 'lvht/phpcd.vim' "php completion
 Plug 'SirVer/ultisnips' "snippet manager
 Plug 'honza/vim-snippets' "snippets repository
 
-Plug 'vim-syntastic/syntastic' "syntax checker
+Plug 'neomake/neomake'
 
 " => syntax plugins
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -133,17 +133,42 @@ nmap <leader>ga :Gwrite<cr>
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gr :Gread<CR>
 
+" => neomake
+function! MyOnBattery()
+  if has('macunix')
+    return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
+  elsif has('unix')
+    return readfile('/sys/class/power_supply/AC/online') == ['0']
+  endif
+  return 0
+endfunction
 
-" => syntastic settings
-let g:syntastic_python_checkers = ['pylint']
-"let g:syntastic_python_flake8_args='--ignore=E701'
-let g:syntastic_python_pylint_args = '--disable=C0103 --extension-pkg-whitelist=pygame --max-line-length=100'
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-    au!
-    au FileType tex let b:syntastic_mode = "passive"
-augroup END
+if MyOnBattery()
+  call neomake#configure#automake('w')
+else
+  call neomake#configure#automake('nw', 1000)
+endif
+
+" config for python syntax checking
+
+let g:neomake_python_pylint_maker = {
+  \ 'args': [
+  \ '-d', 'C0103, C0111',
+  \ '-f', 'text',
+  \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
+  \ '-r', 'n'
+  \ ],
+  \ 'errorformat':
+  \ '%A%f:%l:%c:%t: %m,' .
+  \ '%A%f:%l: %m,' .
+  \ '%A%f:(%l): %m,' .
+  \ '%-Z%p^%.%#,' .
+  \ '%-G%.%#',
+  \ }
+
+let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--max-line-length=100']
+let g:neomake_python_enabled_makers = ['pylint']
+
 
 " => python-mode
 let g:pymode_python = 'python3'
