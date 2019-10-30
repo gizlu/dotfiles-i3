@@ -149,8 +149,11 @@ else
   call neomake#configure#automake('nw', 1000)
 endif
 
-" config for python syntax checking
+" set symbols
+let g:neomake_error_sign = {'text': '✘'}
+let g:neomake_warning_sign = {'text': '▲'}
 
+" config for python syntax checking
 let g:neomake_python_pylint_maker = {
   \ 'args': [
   \ '-d', 'C0103, C0111',
@@ -165,7 +168,6 @@ let g:neomake_python_pylint_maker = {
   \ '%-Z%p^%.%#,' .
   \ '%-G%.%#',
   \ }
-
 let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--max-line-length=100']
 let g:neomake_python_enabled_makers = ['pylint']
 
