@@ -74,7 +74,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'Shougo/denite.nvim' 
 Plug 'blindFS/vim-taskwarrior' " vim interface to taskwarrior
 
-Plug 'neomake/neomake'
 call plug#end()
 
 " => airline
