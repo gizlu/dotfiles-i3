@@ -23,6 +23,7 @@ Plug 'lvht/phpcd.vim' "php completion
 Plug 'SirVer/ultisnips' "snippet manager
 Plug 'honza/vim-snippets' "snippets repository
 
+Plug 'jiangmiao/auto-pairs' "automatic bracket completion
 Plug 'neomake/neomake'
 Plug 'skywind3000/asyncrun.vim'
 
@@ -75,7 +76,6 @@ Plug 'christoomey/vim-tmux-navigator' " have same bindings with tmux
 Plug 'edkolev/tmuxline.vim'
 
 "Plug 'idanarye/vim-vebugger' " multi-language debugger
-" 
 
 " => buffer plugins
 Plug 'Shougo/denite.nvim' 
