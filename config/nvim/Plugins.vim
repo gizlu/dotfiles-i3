@@ -18,6 +18,7 @@ Plug 'SirVer/ultisnips' "snippet manager
 Plug 'honza/vim-snippets' "snippets repository
 
 Plug 'neomake/neomake'
+Plug 'skywind3000/asyncrun.vim'
 
 " => syntax plugins
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -170,6 +171,26 @@ let g:neomake_python_pylint_maker = {
 let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--max-line-length=100']
 let g:neomake_python_enabled_makers = ['pylint']
 
+" => asyncrun
+" Quick run via <F5>
+nnoremap <F5> :call <SID>compile_and_run()<CR>
+
+function! s:compile_and_run()
+    exec 'w'
+    if &filetype == 'c'
+        exec "AsyncRun! gcc % -o %<; time ./%<"
+    elseif &filetype == 'cpp'
+       exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+    elseif &filetype == 'java'
+       exec "AsyncRun! javac %; time java %<"
+    elseif &filetype == 'sh'
+       exec "AsyncRun! time bash %"
+    elseif &filetype == 'python'
+       exec "AsyncRun! time python %"
+    endif
+endfunction
+
+let g:asyncrun_open = 15
 
 " => python-mode
 let g:pymode_python = 'python3'
@@ -189,8 +210,6 @@ let g:vebugger_leader='<Leader>d'
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 " => neoformat
 autocmd Filetype * if &ft!="python"|noremap <buffer> <F8> :Neoformat<CR>|endif
-
-
 
 " => json
 let g:vim_json_syntax_conceal = 0 " disable json concealing
