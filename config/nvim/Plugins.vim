@@ -159,8 +159,11 @@ endif
 " set symbols
 let g:neomake_error_sign = {'text': '✘'}
 let g:neomake_warning_sign = {'text': '▲'}
+" disable inline warning
 
 " config for python syntax checking
+let g:neomake_virtualtext_current_error=0
+
 let g:neomake_python_pylint_maker = {
   \ 'args': [
   \ '-d', 'C0103, C0111',
