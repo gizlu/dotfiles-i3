@@ -3,7 +3,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " => Appearance
 Plug 'morhetz/gruvbox' "gruvbox theme
 Plug 'vim-airline/vim-airline' "statusbar
-Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline-themes'
 
 " => completion and syntax
@@ -18,8 +17,6 @@ endif
 Plug 'deoplete-plugins/deoplete-jedi' "python completion
 Plug 'davidhalter/jedi-vim' "python goto and refactoring
 Plug 'Shougo/neco-syntax' "completion from syntax files
-Plug 'wokalski/autocomplete-flow' "javascript completion
-Plug 'lvht/phpcd.vim' "php completion
 
 Plug 'SirVer/ultisnips' "snippet manager
 Plug 'honza/vim-snippets' "snippets repository
@@ -32,23 +29,12 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'StanAngeloff/php.vim'
-Plug 'elzr/vim-json'
 
 " => Project navigation
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
-
-Plug 'mileszs/ack.vim'
-
-
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy find
-
 Plug 'vim-scripts/bufexplorer.zip'
-
 Plug 'mhinz/vim-startify' "fancy start screenT
 
 " => git support
@@ -59,26 +45,15 @@ Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing
 " =>  Other text editing features
 Plug 'tpope/vim-commentary' "gcc to comment line, gc in visual to comment selection
 Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
-Plug 'tpope/vim-surround' "easily change, delete parenthes, brackets, quotes, XML tags, and more
-Plug 'alvan/vim-closetag' "auto closing HTML tags
-"Plug 'Valloric/MatchTagAlways' "show matching HTML tags
-Plug 'brooth/far.vim' "search and replace
+Plug 'sbdchd/neoformat' " multi language autoformater
 Plug 'lambdalisue/suda.vim' " read or write files with sudo command
 
 " => Other imporvemnts
 Plug 'Vimjas/vim-python-pep8-indent' " A nicer Python indentation style for vim. 
 Plug 'tweekmonster/django-plus.vim' "improvements to the handling of Django related files in Vim
-Plug 'tell-k/vim-autopep8' " autopep8
-Plug 'sbdchd/neoformat' " multi language autoformater
 Plug 'sukima/xmledit/' " help edit XML/HTML documents
 Plug 'christoomey/vim-tmux-navigator' " have same bindings with tmux
 Plug 'edkolev/tmuxline.vim'
-
-"Plug 'idanarye/vim-vebugger' " multi-language debugger
-
-" => buffer plugins
-Plug 'Shougo/denite.nvim' 
-Plug 'blindFS/vim-taskwarrior' " vim interface to taskwarrior
 
 call plug#end()
 
@@ -95,7 +70,6 @@ let deoplete#tag#cache_limit_size = 5000000
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-
 " => snippets
 "default ultisnips bindings
 
@@ -107,24 +81,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " => nerdtree
 " Open/close NERDTree Tabs with ,t
 nmap <silent> <leader>n :NERDTreeTabsToggle<CR>
-
-" => ack.vim
-" open ack for fast search
-map <leader>g :Ack
-
-" => easytags and tagbar
-
-" Where to look for tags files
-set tags=./tags;,~/.vimtags
-" Sensible defaults
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
-
-" Open/close tagbar with ,b
-nmap <silent> <leader>b :TagbarToggle<CR>
 
 " => bufExplorer plugin
 
@@ -202,9 +158,6 @@ endfunction
 
 let g:asyncrun_open = 15
 
-" => python debugger
-let g:vebugger_leader='<Leader>d'
-
 " => neoformat
 nnoremap <F8> :Neoformat<CR>
 
@@ -219,6 +172,3 @@ let g:jedi#completions_enabled = 0
 
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
-
-" => json
-let g:vim_json_syntax_conceal = 0 " disable json concealing
