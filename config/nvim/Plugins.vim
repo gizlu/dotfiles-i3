@@ -58,8 +58,7 @@ Plug 'aymericbeaumet/symlink.vim' "symlink autofolowing
 
 " =>  Other text editing features
 Plug 'tpope/vim-commentary' "gcc to comment line, gc in visual to comment selection
-"Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
-Plug 'hlissner/vim-multiedit' 
+Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
 Plug 'tpope/vim-surround' "easily change, delete parenthes, brackets, quotes, XML tags, and more
 Plug 'alvan/vim-closetag' "auto closing HTML tags
 "Plug 'Valloric/MatchTagAlways' "show matching HTML tags
