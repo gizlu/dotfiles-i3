@@ -214,10 +214,13 @@ let g:pymode_rope_complete_on_dot = 0
 " => python debugger
 let g:vebugger_leader='<Leader>d'
 
-" => autopep8
-autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 " => neoformat
-autocmd Filetype * if &ft!="python"|noremap <buffer> <F8> :Neoformat<CR>|endif
+nnoremap <F8> :Neoformat<CR>
+
+" Settings when formatter not found
+let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_retab = 1
+let g:neoformat_basic_format_trim = 1
 
 " => json
 let g:vim_json_syntax_conceal = 0 " disable json concealing
