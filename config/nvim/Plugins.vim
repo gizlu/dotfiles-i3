@@ -7,10 +7,16 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline-themes'
 
 " => completion and syntax
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "autocompletion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-Plug 'Shougo/neco-syntax' "completion from syntax files
 Plug 'deoplete-plugins/deoplete-jedi' "python completion
+Plug 'Shougo/neco-syntax' "completion from syntax files
 Plug 'wokalski/autocomplete-flow' "javascript completion
 Plug 'lvht/phpcd.vim' "php completion
 
@@ -87,6 +93,8 @@ let g:airline#extensions#tabline#enabled = 1
 " => autocompletion
 let g:deoplete#enable_at_startup = 1
 let deoplete#tag#cache_limit_size = 5000000
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 
 " => snippets
