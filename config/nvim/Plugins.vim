@@ -16,6 +16,7 @@ else
 endif
 
 Plug 'deoplete-plugins/deoplete-jedi' "python completion
+Plug 'davidhalter/jedi-vim' "python goto and refactoring
 Plug 'Shougo/neco-syntax' "completion from syntax files
 Plug 'wokalski/autocomplete-flow' "javascript completion
 Plug 'lvht/phpcd.vim' "php completion
@@ -66,7 +67,6 @@ Plug 'brooth/far.vim' "search and replace
 Plug 'lambdalisue/suda.vim' " read or write files with sudo command
 
 " => Other imporvemnts
-Plug 'klen/python-mode'
 Plug 'Vimjas/vim-python-pep8-indent' " A nicer Python indentation style for vim. 
 Plug 'tweekmonster/django-plus.vim' "improvements to the handling of Django related files in Vim
 Plug 'tell-k/vim-autopep8' " autopep8
@@ -200,17 +200,6 @@ endfunction
 
 let g:asyncrun_open = 15
 
-" => python-mode
-let g:pymode_python = 'python3'
-let g:pymode_indent = 0
-let g:pymode_folding = 1
-let g:pymode_virtualenv = 1
-let g:pymode_lint = 0
-let g:pymode_rope = 1
-"disable annoying pymode features
-let g:pymode_doc = 0
-let g:pymode_rope_complete_on_dot = 0
-
 " => python debugger
 let g:vebugger_leader='<Leader>d'
 
@@ -221,6 +210,13 @@ nnoremap <F8> :Neoformat<CR>
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
+
+" => jedi-vim
+" disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
 
 " => json
 let g:vim_json_syntax_conceal = 0 " disable json concealing
