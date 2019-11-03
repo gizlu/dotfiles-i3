@@ -49,6 +49,7 @@ Plug 'tpope/vim-commentary' "gcc to comment line, gc in visual to comment select
 Plug 'terryma/vim-multiple-cursors' "<C-n> next, <C-x> skip, <C-p> prev
 Plug 'sbdchd/neoformat' " multi language autoformater
 Plug 'lambdalisue/suda.vim' " read or write files with sudo command
+Plug 'vim-scripts/a.vim' " Switching between source and header file
 
 " => Other imporvemnts
 Plug 'Vimjas/vim-python-pep8-indent' " A nicer Python indentation style for vim. 
