@@ -127,6 +127,7 @@ let g:neomake_python_pylint_maker = {
   \ 'args': [
   \ '-d', 'C0103, C0111',
   \ '-f', 'text',
+  \ '--max-line-length=100',
   \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
   \ '-r', 'n'
   \ ],
@@ -137,7 +138,6 @@ let g:neomake_python_pylint_maker = {
   \ '%-Z%p^%.%#,' .
   \ '%-G%.%#',
   \ }
-let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--max-line-length=100']
 let g:neomake_python_enabled_makers = ['pylint']
 
 " => asyncrun
