@@ -125,7 +125,7 @@ let g:neomake_virtualtext_current_error=0
 
 let g:neomake_python_pylint_maker = {
   \ 'args': [
-  \ '-d', 'C0103, C0111',
+  \ '-d', 'C0103',
   \ '-f', 'text',
   \ '--max-line-length=100',
   \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
