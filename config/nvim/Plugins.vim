@@ -57,6 +57,7 @@ Plug 'tweekmonster/django-plus.vim' "improvements to the handling of Django rela
 Plug 'sukima/xmledit/' " help edit XML/HTML documents
 Plug 'christoomey/vim-tmux-navigator' " have same bindings with tmux
 Plug 'edkolev/tmuxline.vim'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
