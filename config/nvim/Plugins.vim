@@ -144,6 +144,8 @@ let g:neomake_python_enabled_makers = ['pylint']
 " => asyncrun
 " Quick run via <F5>
 nnoremap <F5> :call <SID>compile_and_run()<CR>
+" Make via <F6>
+nnoremap <F6> :AsyncRun -cwd=<root> make<CR>
 
 function! s:compile_and_run()
     exec 'w'
