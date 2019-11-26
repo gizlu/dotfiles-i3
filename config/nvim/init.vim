@@ -42,7 +42,7 @@ set autoindent          " copy indent from current line when starting a new line
 "
 " === intendation settings ===
 " configure expanding of tabs for various file types
-autocmd FileType c,cpp,objc setlocal expandtab shiftwidth=2 softtabstop=2
+" autocmd FileType c,cpp,objc setlocal expandtab shiftwidth=2 softtabstop=2
 
 " make backspaces more powerfull
 set backspace=indent,eol,start
