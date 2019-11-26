@@ -24,7 +24,7 @@ Plug 'SirVer/ultisnips' "snippet manager
 Plug 'honza/vim-snippets' "snippets repository
 
 Plug 'jiangmiao/auto-pairs' "automatic bracket completion
-Plug 'neomake/neomake'
+Plug 'dense-analysis/ale'
 Plug 'skywind3000/asyncrun.vim'
 
 " => syntax plugins
@@ -100,46 +100,15 @@ nmap <leader>ga :Gwrite<cr>
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gr :Gread<CR>
 
-" => neomake
-function! MyOnBattery()
-  if has('macunix')
-    return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
-  elsif has('unix')
-    return readfile('/sys/class/power_supply/AC/online') == ['0']
-  endif
-  return 0
-endfunction
+" => ALE
 
-if MyOnBattery()
-  call neomake#configure#automake('w')
-else
-  call neomake#configure#automake('nw', 1000)
-endif
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '▲'
 
-" set symbols
-let g:neomake_error_sign = {'text': '✘'}
-let g:neomake_warning_sign = {'text': '▲'}
-" disable inline warning
+nmap <silent> <A-k> <Plug>(ale_previous_wrap)
+nmap <silent> <A-j> <Plug>(ale_next_wrap)
 
-" config for python syntax checking
-let g:neomake_virtualtext_current_error=0
-
-let g:neomake_python_pylint_maker = {
-  \ 'args': [
-  \ '-d', 'C0103',
-  \ '-f', 'text',
-  \ '--max-line-length=100',
-  \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
-  \ '-r', 'n'
-  \ ],
-  \ 'errorformat':
-  \ '%A%f:%l:%c:%t: %m,' .
-  \ '%A%f:%l: %m,' .
-  \ '%A%f:(%l): %m,' .
-  \ '%-Z%p^%.%#,' .
-  \ '%-G%.%#',
-  \ }
-let g:neomake_python_enabled_makers = ['pylint']
+let g:ale_python_pylint_options = '--disable=C0114,C0116'
 
 " => asyncrun
 " Quick run via <F5>
