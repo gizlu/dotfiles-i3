@@ -72,15 +72,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:deoplete#enable_at_startup = 1
 let deoplete#tag#cache_limit_size = 5000000
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " => snippets
 "default ultisnips bindings
 
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsListSnippets = "<c-tab>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsExpandTrigger= '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " => nerdtree
 " Open/close NERDTree Tabs with ,t
