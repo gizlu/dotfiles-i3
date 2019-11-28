@@ -1,9 +1,9 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/gizlu//.gtkrc-2.0.mine"
-gtk-theme-name="Matcha-dark-azul"
-gtk-icon-theme-name="Numix"
+include "/home/gizlu/.gtkrc-2.0.mine"
+gtk-theme-name="Matcha-dark-aliz"
+gtk-icon-theme-name="Numix-Circle"
 gtk-font-name="SFNS Display 13"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
@@ -15,5 +15,5 @@ gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
-gtk-xft-hintstyle="hintslight"
+gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
