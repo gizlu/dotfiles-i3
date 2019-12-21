@@ -90,8 +90,10 @@ bindsym $mod+Print --release exec --no-startup-id picture_name=$(date +%F-%T)'.p
 bindsym Print --release exec --no-startup-id picture_name=$(date +%F-%T)'.png' && maim ~/Pictures/screeny/$picture_name && perl-rename 's/[?<>\\:*|\"]/_/g' ~/Pictures/screeny/$picture_name
 
 # Audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%
+bindsym $Mod+$Moe+$up exec --no-startup-id pactl set-sink-volume 0 +1%
+bindsym $Mod+$Moe+$down exec --no-startup-id pactl set-sink-volume 0 -1%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 bindsym XF86AudioNext exec --no-startup-id mpc next
@@ -102,6 +104,8 @@ bindsym XF86AudioStop exec --no-startup-id mpc stop
 # Backlight control
 bindsym XF86MonBrightnessUp  exec --no-startup-id light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym $Mod+$Moe+$right exec --no-startup-id light -A 1
+bindsym $Mod+$Moe+$left exec --no-startup-id light -U 1
 
 # Applications
 bindsym $mod+Return exec --no-startup-id $terminal
