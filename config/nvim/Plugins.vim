@@ -16,7 +16,7 @@ endif
 
 Plug 'deoplete-plugins/deoplete-jedi' "python completion
 Plug 'davidhalter/jedi-vim' "python goto and refactoring
-Plug 'Shougo/neco-syntax' "completion from syntax files
+Plug 'wellle/tmux-complete.vim' "completion from tmux pane
 Plug 'Shougo/neoinclude.vim' "Include completion framework
 Plug 'Shougo/deoplete-clangx' "c/cpp completion
 
