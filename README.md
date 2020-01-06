@@ -5,7 +5,7 @@ My archlinux configuration files
 ## Dependencies
 Currently the following arch packages are used:
 - [i3-gaps](https://github.com/Airblader/i3) as window manager
-- [i3blocks](https://aur.archlinux.org/packages/i3blocks) for the status bar
+- polybar for the status bar
 - [termite](https://github.com/thestinger/termite) as the terminal emulator
 - [neovim](https://github.com/neovim/neovim) as editor
 - [neovim-qt](https://github.com/equalsraf/neovim-qt) as gui editor

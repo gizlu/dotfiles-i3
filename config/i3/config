@@ -55,19 +55,7 @@ set $file-manager thunar
 set $nm-gui networkmanager_dmenu
 
 # Start i3bar to display a workspace bar
-bar {
-  position bottom
-  status_command SCRIPT_DIR=~/.config/i3/i3blocks/ i3blocks -c ~/.config/i3/i3blocks.conf
-  colors {
-    separator #928374
-    background #282828
-    statusline #ebdbb2
-    focused_workspace #689d6a #689d6a #282828
-    active_workspace #1d2021 #1d2021 #928374
-    inactive_workspace #32302f #32302f #928374
-    urgent_workspace #cc241d #cc241d #ebdbb2
-  }
-}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ###############
 # Keybindings #
