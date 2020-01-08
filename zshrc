@@ -133,12 +133,19 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 
-# Aliases
+### Aliases ###
+alias rm_metadata="exiftool -all= -overwrite_original"
+
 alias h="history 1"
 
+# youtube-dl aliases
 alias mp3-dl="youtube-dl --extract-audio --audio-format mp3"
 alias mkv-dl="youtube-dl -f bestvideo+bestaudio/mkv"
 
+# git aliases
+alias ggraph="git log --graph --decorate --all --oneline"
+
+# disk-related aliases
 alias show_disk_processes="sudo lsof | grep"
 alias veracrypt-dismount="killall mpd; veracrypt -d -f"
 
@@ -155,7 +162,16 @@ tickle () {
 alias tick=tickle
 alias think='tickle +1d'
 
+
+### theme ###
 source ~/.zim/modules/prompt/external-themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+### Misc ###
+
+# Virtualenvwrapper things
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Dev
+source /usr/bin/virtualenvwrapper.sh
