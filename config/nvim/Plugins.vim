@@ -118,7 +118,7 @@ function! s:compile_and_run()
     if &filetype == 'c'
         exec "AsyncRun! gcc % -o %<; time ./%<"
     elseif &filetype == 'cpp'
-       exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+       exec "AsyncRun! g++ -std=c++17 % -o %<; time ./%<"
     elseif &filetype == 'java'
        exec "AsyncRun! javac %; time java %<"
     elseif &filetype == 'sh'
