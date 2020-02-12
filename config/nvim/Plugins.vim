@@ -81,7 +81,6 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " => nerdtree
-" Open/close NERDTree Tabs with ,t
 nmap <silent> <leader>n :NERDTreeTabsToggle<CR>
 
 " => bufExplorer plugin
@@ -139,6 +138,7 @@ let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 
+let g:neoformat_enabled_python = ['yapf']
 " => jedi-vim
 " disable autocompletion, cause we use deoplete for completion
 let g:jedi#completions_enabled = 0
