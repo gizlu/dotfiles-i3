@@ -18,7 +18,11 @@ Plug 'deoplete-plugins/deoplete-jedi' "python completion
 Plug 'davidhalter/jedi-vim' "python goto and refactoring
 Plug 'wellle/tmux-complete.vim' "completion from tmux pane
 Plug 'Shougo/neoinclude.vim' "Include completion framework
-Plug 'Shougo/deoplete-clangx' "c/cpp completion
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 Plug 'SirVer/ultisnips' "snippet manager
 Plug 'honza/vim-snippets' "snippets repository
@@ -106,6 +110,7 @@ nmap <silent> <A-k> <Plug>(ale_previous_wrap)
 nmap <silent> <A-j> <Plug>(ale_next_wrap)
 
 let g:ale_python_pylint_options = '--disable=C0114,C0116'
+let g:ale_linters = {'c': [], 'cpp': []} " TO TIDY
 
 " => asyncrun
 " Quick run via <F5>
@@ -145,3 +150,33 @@ let g:jedi#completions_enabled = 0
 
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
+
+
+let g:alternateSearchPath = 'sfr:../Source,sfr:../src,sfr:../Include,sfr:../inc'
+
+let g:LanguageClient_serverCommands = {
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+    \ }
+
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType cpp,c call SetLSPShortcuts()
+augroup END
+
+let g:LanguageClient_useVirtualText = "No"

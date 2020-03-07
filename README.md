@@ -25,4 +25,4 @@ Currently the following arch packages are used:
 - [rofi](https://github.com/davatorium/rofi) program launcher
 - [feh](https://github.com/derf/feh) to set the background
 - [compton](https://github.com/chjj/compton) A compositor for X11
-- [ctags](https://ctags.io/) as a tagfiles tool
+- ccls c/cpp language server protocol

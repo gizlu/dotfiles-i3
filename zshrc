@@ -153,6 +153,7 @@ alias veracrypt-dismount="killall mpd; veracrypt -d -f"
 alias in="task add +in"  # inbox
 alias rnd='task add +rnd +next +@computer +@online'  # research
 
+alias cmake-compile_commands=-DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
 
 tickle () {
     deadline=$1
