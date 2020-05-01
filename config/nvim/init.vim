@@ -173,12 +173,14 @@ endfunction
 " => Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" => persistent undo (not cleared after close)
-try
-    set undodir=~/.local/share/nvim/temp_dirs/undodir
-    set undofile
-catch
-endtry
+set undofile
+set undodir=~/.local/share/nvim/temp_dirs/undodir//
+
+set backup
+set backupdir=~/.local/share/nvim/temp_dirs/backupdir//
+
+set swapfile
+set directory=~/.local/share/nvim/temp_dirs/swapdir//
 
 " => oppening help in vert split
 augroup vimrc_help
