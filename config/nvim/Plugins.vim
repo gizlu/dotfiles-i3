@@ -146,6 +146,10 @@ let g:neoformat_enabled_python = ['yapf']
 " => jedi-vim
 " disable autocompletion, cause we use deoplete for completion
 let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = "<leader>ld"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
 
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
