@@ -27,7 +27,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'SirVer/ultisnips' "snippet manager
 Plug 'honza/vim-snippets' "snippets repository
 
-Plug 'jiangmiao/auto-pairs' "automatic bracket completion
 Plug 'dense-analysis/ale'
 Plug 'skywind3000/asyncrun.vim'
 
