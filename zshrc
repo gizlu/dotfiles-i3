@@ -156,6 +156,9 @@ alias rnd='task add +rnd +next +@computer +@online'  # research
 
 alias cmake-compile_commands=-DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
 
+#vim
+alias suvi='sudo -E nvim'
+
 tickle () {
     deadline=$1
     shift
