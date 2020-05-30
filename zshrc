@@ -139,7 +139,8 @@ alias rm_metadata="exiftool -all= -overwrite_original"
 alias h="history 1"
 
 # youtube-dl aliases
-alias mp3-dl="youtube-dl --extract-audio --audio-format mp3"
+alias audio-dl="youtube-dl -f bestaudio --extract-audio"
+alias opus-dl="youtube-dl --extract-audio --audio-quality 0 --audio-format opus"
 alias mkv-dl="youtube-dl -f bestvideo+bestaudio/mkv"
 
 # git aliases
