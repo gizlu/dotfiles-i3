@@ -124,8 +124,8 @@ map <leader>q :bd<cr>
 map <leader>Q :bd!<cr>
 map <leader>ba :bufdo bd<cr>
 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
+map <M-l> :bnext<cr>
+map <M-h> :bprevious<cr>
 
 "quick change directory to current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
