@@ -32,7 +32,7 @@ Plug 'skywind3000/asyncrun.vim'
 
 " => syntax plugins
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 Plug 'StanAngeloff/php.vim'
 
 " => Project navigation
@@ -162,6 +162,8 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'javascript': ['typescript-language-server', '--stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
     \ }
 
 function SetLSPShortcuts()
@@ -179,7 +181,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType cpp,c call SetLSPShortcuts()
+  autocmd FileType cpp,c,javascript,typescript call SetLSPShortcuts()
 augroup END
 
 let g:LanguageClient_useVirtualText = "No"
