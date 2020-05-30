@@ -60,7 +60,6 @@ Plug 'tweekmonster/django-plus.vim' "improvements to the handling of Django rela
 Plug 'sukima/xmledit/' " help edit XML/HTML documents
 Plug 'christoomey/vim-tmux-navigator' " have same bindings with tmux
 Plug 'edkolev/tmuxline.vim'
-Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -185,3 +184,6 @@ augroup LSP
 augroup END
 
 let g:LanguageClient_useVirtualText = "No"
+
+"remove annoying json behavior
+let g:vim_json_conceal=0
