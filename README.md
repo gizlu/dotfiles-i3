@@ -4,11 +4,10 @@ My archlinux configuration files
 
 ## Instalation
 
-###Install zsh, zsh config framework, zsh theme:
+###Install zsh, zsh plugin manager
 '''bash
 sudo pacman -S zsh
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-git clone https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 '''
 
 
