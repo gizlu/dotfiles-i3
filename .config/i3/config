@@ -1,0 +1,260 @@
+###########
+# Genaral #
+###########
+
+client.focused #689d6a #689d6a #282828 #282828
+client.focused_inactive #1d2021 #1d2021 #928374 #282828
+client.unfocused #32302f #32302f #928374 #282828
+client.urgent #cc241d #cc241d #ebdbb2 #282828
+
+# font
+font pango:SFNS Display 12
+
+#  Border & Gaps
+for_window [class="^.*"] border pixel 2, title_format " %title "
+smart_borders on
+
+# Gaps
+gaps inner 0
+gaps outer 0
+
+new_window pixel
+new_float normal
+popup_during_fullscreen smart
+
+# Mod key (Super)
+set $mod Mod4
+# Moe key (Alt)
+set $moe Mod1
+
+# Direction keys
+set $up k
+set $down j
+set $left h
+set $right l
+
+floating_modifier $mod
+
+set $ws1    "1:  "
+set $ws2    "2:  "
+set $ws3    "3:  "
+set $ws4    "4:  "
+set $ws5    "5:  "
+set $ws6    "6:  "
+set $ws7    "7:  "
+set $ws8    "8:  "
+set $ws9    "9:  "
+set $ws10   "10: "
+set $ws11   "11  "
+
+# variables
+set $terminal termite
+set $browser firefox
+set $gui-editor termite -e "nvim"
+set $file-manager thunar
+set $nm-gui networkmanager_dmenu
+
+# Start i3bar to display a workspace bar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+###############
+# Keybindings #
+###############
+
+# Restart i3 inplace
+bindsym $mod+Shift+r restart
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Lock
+bindsym $mod+shift+x exec --no-startup-id i3lock --color=#000000 --ignore-empty-password --show-failed-attempt && xset dpms force suspend 
+
+# Launcher
+bindsym $mod+d exec rofi -show run
+
+# Screenshoot
+bindsym $mod+Shift+Print --release exec --no-startup-id picture_name=$(date +%F-%T)'.png' && maim -s ~/Pictures/screeny/$picture_name | xclip -selection clipboard -t image/png && perl-rename 's/[?<>\\:*|\"]/_/g' ~/Pictures/screeny/$picture_name
+bindsym $mod+Print --release exec --no-startup-id picture_name=$(date +%F-%T)'.png' && maim -i $(xdotool getactivewindow) ~/Pictures/screeny/$picture_name && perl-rename 's/[?<>\\:*|\"]/_/g' ~/Pictures/screeny/$picture_name
+bindsym Print --release exec --no-startup-id picture_name=$(date +%F-%T)'.png' && maim ~/Pictures/screeny/$picture_name && perl-rename 's/[?<>\\:*|\"]/_/g' ~/Pictures/screeny/$picture_name
+
+# Audio control
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%
+bindsym $Mod+$Moe+$up exec --no-startup-id pactl set-sink-volume 0 +1%
+bindsym $Mod+$Moe+$down exec --no-startup-id pactl set-sink-volume 0 -1%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioStop exec --no-startup-id mpc stop
+
+# Backlight control
+bindsym XF86MonBrightnessUp  exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym $Mod+$Moe+$right exec --no-startup-id light -A 1
+bindsym $Mod+$Moe+$left exec --no-startup-id light -U 1
+
+# Applications
+bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+q exec --no-startup-id $browser
+bindsym $mod+a exec --no-startup-id $gui-editor
+bindsym $mod+z exec --no-startup-id $file-manager
+bindsym $moe+n exec --no-startup-id $file-manager ~/Pictures/screeny/
+bindsym $moe+p [instance="dropdown_keepassxc"] scratchpad show; [instance="dropdown_keepassxc"] move position center
+bindsym $moe+t [instance="dropdown_tmux"] scratchpad show; [instance="dropdown_tmux"] move position center
+bindsym $moe+c [instance="dropdown_ipython"] scratchpad show; [instance="dropdown_ipython"] move position center
+bindsym $moe+v [instance="veracrypt"] scratchpad show; [instance="veracrypt"] move position center
+
+#############
+# Autostart #
+#############
+exec --no-startup-id keepassxc -name dropdown_keepassxc
+exec --no-startup-id veracrypt
+exec --no-startup-id termite -e tmux --name=dropdown_tmux
+exec --no-startup-id termite -e ipython --name=dropdown_ipython
+exec --no-startup-id thunderbird
+exec --no-startup-id compton
+exec --no-startup-id redshift -l 50.9:17.2 -t 4600:2500
+exec --no-startup-id xautolock -time 12 -locker "i3lock --color=#000000 --ignore-empty-password --show-failed-attempt && xset dpms force suspend " -detectsleep
+#exec_always --no-startup-id sleep 0.5 && conky -c ~/.conky/conkyrc
+#exec_always --no-startup-id sleep 1 && conky -c ~/.conky/conkyrc2
+exec_always --no-startup-id feh --bg-scale ~/Pictures/.backgrounds/wallpaper.jpg
+exec_always --no-startup-id [ ! -s ~/.mpd/pid ] && mpd
+exec --no-startup-id termite -e ncmpcpp -t music
+exec --no-startup-id dockd --daemon
+exec --no-startup-id /usr/bin/lxqt-policykit-agent &
+
+
+#######################
+# Aplication Settings #
+#######################
+
+
+# Browser (WS2)
+assign [class="Firefox"] $ws2
+
+# Documents (WS5)
+assign [class="libreoffice"] $ws5
+assign [class="atril"] $ws5
+
+# Chat (WS6)
+assign [class="Telegram"] $ws6
+assign [class="Caprine"] $ws6
+assign [class="Hexchat"] $ws6
+assign [class="Thunderbird"] $ws6
+
+# Video (WS8)
+assign [class="mpv"] $ws8
+assign [title="music"] $ws10
+
+# Scratchpad
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] border pixel 3
+for_window [instance="dropdown_*"] sticky enable
+
+
+for_window [instance="dropdown_keepassxc"] resize set 800 600
+for_window [instance="dropdown_tmux"] resize set 845 400
+for_window [instance="dropdown_ipython"] resize set 800 300
+
+for_window [instance="veracrypt"] move scratchpad
+for_window [instance="veracrypt"] border pixel 3
+for_window [instance="veracrypt"] resize set 800 600
+
+
+# Other
+for_window [class="Yad"] floating enable
+
+##################
+# Window control #
+##################
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$lown move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# resize focused window
+bindsym $Mod+Ctrl+$up    resize shrink height 20 px or 2 ppt
+bindsym $Mod+Ctrl+$down  resize grow   height 20 px or 2 ppt
+bindsym $Mod+Ctrl+$left  resize shrink width  20 px or 2 ppt
+bindsym $Mod+Ctrl+$right resize grow   width  20 px or 2 ppt
+
+# split in horizontal orientation
+bindsym $mod+shift+v split h
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+#bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# kill focused window
+bindsym $mod+Shift+q exec --no-startup-id ~/.local/bin/kill-active-window
+
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+m move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+m scratchpad show
+
+######################
+# workspace bindings #
+######################
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+underscore workspace $ws11
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+underscore move container to workspace $ws11
+
+# move active workspace between monitors
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
