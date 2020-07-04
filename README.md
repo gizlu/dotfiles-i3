@@ -2,6 +2,8 @@
 
 My archlinux configuration files
 
+Todo: rewrite README
+
 ## Instalation
 
 ###Install zsh, zsh plugin manager
