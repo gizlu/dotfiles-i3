@@ -198,6 +198,9 @@ set autoread
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 
+" open highlited text in vertical split
+vnoremap <F3> y<ESC>:vnew<CR>P<c-w>pgv
+
 
 " => autoreload vimrc after save
 autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim
