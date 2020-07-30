@@ -201,12 +201,7 @@ set ssop-=folds      " do not store folds
 " open highlited text in vertical split
 vnoremap <F3> y<ESC>:vnew<CR>P<c-w>pgv
 
-
 " => autoreload vimrc after save
 autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim
 autocmd! bufwritepost ~/.config/nvim/Plugins.vim source ~/.config/nvim/init.vim
 autocmd! bufwritepost ~/.config/nvim/ginit.vim source ~/.config/nvim/init.vim
-
-autocmd! bufwritepost ~/.dotfiles/config/nvim/init.vim source ~/.config/nvim/init.vim
-autocmd! bufwritepost ~/.dotfiles/config/nvim/Plugins.vim source ~/.config/nvim/init.vim
-autocmd! bufwritepost ~/.dotfiles/config/nvim/ginit.vim source ~/.config/nvim/init.vim
