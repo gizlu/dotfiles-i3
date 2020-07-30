@@ -113,7 +113,8 @@ exec --no-startup-id keepassxc -name dropdown_keepassxc
 exec --no-startup-id veracrypt
 exec --no-startup-id termite -e tmux --name=dropdown_tmux
 exec --no-startup-id termite -e ipython --name=dropdown_ipython
-exec --no-startup-id thunderbird
+# exec --no-startup-id thunderbird
+exec --no-startup-id $terminal -e neomutt --name=neomutt
 exec --no-startup-id compton
 exec --no-startup-id redshift -l 50.9:17.2 -t 4600:2500
 exec --no-startup-id xautolock -time 12 -locker "i3lock --color=#000000 --ignore-empty-password --show-failed-attempt && xset dpms force suspend " -detectsleep
@@ -143,6 +144,7 @@ assign [class="Telegram"] $ws6
 assign [class="Caprine"] $ws6
 assign [class="Hexchat"] $ws6
 assign [class="Thunderbird"] $ws6
+assign [instance="neomutt"] $ws6
 
 # Video (WS8)
 assign [class="mpv"] $ws8
