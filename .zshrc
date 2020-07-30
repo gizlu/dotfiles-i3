@@ -85,6 +85,8 @@ alias think='tickle +1d'
 
 EDITOR=nvim
 
+alias ls='ls --color=auto'
+
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -126,3 +128,8 @@ zinit wait lucid for \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
+
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
