@@ -83,6 +83,8 @@ tickle () {
 alias tick=tickle
 alias think='tickle +1d'
 
+EDITOR=nvim
+
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
