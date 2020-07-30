@@ -37,7 +37,7 @@ setopt HIST_IGNORE_DUPS
 #
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -v
+# bindkey -v
 
 # Prompt for spelling correction of commands.
 #setopt CORRECT
